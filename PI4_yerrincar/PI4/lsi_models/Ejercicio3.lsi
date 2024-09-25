@@ -1,0 +1,27 @@
+head section
+
+Integer getNumDestinos()
+Integer getNumProductos()
+Integer getPrecio(Integer i, Integer j)
+Integer getDestinoI(Integer i)
+Integer getCantidadProductos(Integer j)
+
+Integer n = getNumDestinos()
+Integer m = getNumProductos()
+
+goal section
+
+min sum(getPrecio(i,j) x[i,j], i in 0 .. n, j in 0 .. m)
+
+constraints section
+
+sum(x[i,j], j in 0 .. m) >= getDestinoI(i), i in 0 .. n
+sum(x[i,j], i in 0 .. n) <= getCantidadProductos(j), j in 0 .. m
+
+bounds section
+
+x[i,j] <= getCantidadProductos(j), i in 0 .. n, j in 0 .. m
+
+int
+
+x[i,j], i in 0 .. n, j in 0 .. m
